@@ -1,48 +1,64 @@
-# Pathfinding Visualizer
+# Employee Management System
 
-The Pathfinding Visualizer is a Python application that allows you to visualize various pathfinding algorithms in action. It provides an interactive GUI where you can set start and end points, add barriers, and choose different pathfinding algorithms to find the shortest path between the start and end points.
+## Overview
 
+This Python project implements a simple Employee Management System using object-oriented programming principles. It consists of two main classes: `Employee` and `HRSystem`, which together allow for the addition, removal, and retrieval of employee information.
 
+## Classes
 
-https://github.com/dasharn/PathSense/assets/112700137/2fc66b89-0de0-4bdf-9fba-f1a2d5a0fbdd
+### Employee Class
 
+The `Employee` class represents individual employees with attributes such as name, age, and salary. It provides a string representation of the employee object and encapsulates its data for robustness and maintainability.
 
+#### Methods
 
-## Features
+- `__init__(self, name: str, age: int, salary: float)`: Initializes an employee with the given name, age, and salary.
+- `__repr__(self) -> str`: Returns a string representation of the employee instance.
 
-- Graphical user interface (GUI) for interactive grid-based visualization.
-- Support for popular pathfinding algorithms including A*, Dijkstra's, BFS, and Greedy.
-- Click and drag to set the start and end points on the grid.
-- Add barriers by clicking on the grid cells.
-- Clear nodes by right-clicking on the grid cells.
-- Reset the grid to its initial state.
-- Real-time visualization of the algorithm's progress.
-- Different colors represent different states of nodes (start, end, barrier, visited, etc.).
+### HRSystem Class
 
-## Prerequisites
+The `HRSystem` class manages a collection of `Employee` objects using a dictionary. It provides functionality to add, remove, and retrieve employee information by employee ID.
 
-- Python 3.7 or above
-- Pygame library
+#### Methods
 
-## Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/dasharn/PathSense.git
-
-2. Install the required dependencies
-pip install pygame
+- `__init__(self)`: Initializes an HRSystem instance with an empty dictionary to store employees.
+- `add_employee(self, emp_id: int, name: str, age: int, salary: float) -> None`: Adds a new employee to the system.
+- `remove_employee(self, emp_id: int) -> None`: Removes an employee from the system by their ID.
+- `get_employee_info(self, emp_id: int) -> Any`: Retrieves information about an employee by their ID.
 
 ## Usage
-1. Navigate to the project directory
-cd pathfinding-visualiser
 
-2. Run the visualiser
-python visualiser.py
+### Installation
 
-3. Follow the on-screen instructions to interact with the visualiser
-- Use the 'a' key for A* algorithm, 'd' key for Dijkstra's algorithm, 'b' key for BFS algorithm, and 'g' key for Greedy algorithm.
-- Left-click to set the start and end points, and add barriers.
-- Right-click to clear nodes.
-- Press 'r' to reset the grid.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/employee-management.git
+   cd employee-management
+   ```
+
+2. Ensure Python 3.x is installed. If not, download and install it from [python.org](https://www.python.org/downloads/).
+
+3. No additional packages are required for this project.
+
+### Example
+
+```python
+from employee_system import HRSystem
+
+# Initialize HRSystem
+hr_system = HRSystem()
+
+# Adding employees
+hr_system.add_employee(1, "Alice", 30, 50000.0)
+hr_system.add_employee(2, "Bob", 25, 60000.0)
+hr_system.add_employee(3, "Charlie", 35, 70000.0)
+
+# Retrieving and printing employee information
+emp_id = 2
+employee_info = hr_system.get_employee_info(emp_id)
+if employee_info:
+    print(f"Employee {emp_id}: {employee_info}")
+else:
+    print(f"Employee with ID {emp_id} not found.")
+```
+
